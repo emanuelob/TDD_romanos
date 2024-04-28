@@ -20,4 +20,4 @@ TEST_CASE("Numeros romanos - algarismos duplicados", "[romanos]") {
     REQUIRE(romanos_para_decimal("XC") == 90);
     REQUIRE(romanos_para_decimal("CD") == 400);
     REQUIRE(romanos_para_decimal("CM") == 900);
-}
+};
