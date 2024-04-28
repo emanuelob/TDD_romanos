@@ -1,0 +1,36 @@
+        -:    0:Source:romanos.cpp
+        -:    1:#include "romanos.hpp"
+        -:    2:
+       27:    3:int romanos_para_decimal(char const * numero_romano) {
+        -:    4:  // variável decimal armazena o resultado,
+        -:    5:  // a variável último seria o valor do último algarismo verifcado
+       27:    6:  int decimal = 0;
+       27:    7:  int ultimo = 0;
+        -:    8:
+       87:    9:  while (*numero_romano) {
+       60:   10:      int atual = 0;
+        -:   11:      // determina o valor decimal do algarismo atual
+       60:   12:      switch (*numero_romano) {
+       13:   13:          case 'I': atual = 1; break;
+        4:   14:          case 'V': atual = 5; break;
+       14:   15:          case 'X': atual = 10; break;
+        4:   16:          case 'L': atual = 50; break;
+       14:   17:          case 'C': atual = 100; break;
+        4:   18:          case 'D': atual = 500; break;
+        7:   19:          case 'M': atual = 1000; break;
+        -:   20:      }
+        -:   21:
+        -:   22:      // verificaçao que indica uma dupla válida. Se sim,subtrai os valores
+       60:   23:      if (atual > ultimo) {
+       33:   24:          decimal += atual - 2 * ultimo;
+        -:   25:      } else {  // caso contrário,soma o valor decimal atual ao total
+       27:   26:          decimal += atual;
+        -:   27:      }
+        -:   28:
+       60:   29:      ultimo = atual;  // atualiza o último algarismo verificado
+       60:   30:      numero_romano++;  // prox caractere
+        -:   31:  }
+        -:   32:
+        -:   33:  // após encerrar o loop, retorna o valor decimal resultante
+       27:   34:  return decimal;
+        -:   35:}
