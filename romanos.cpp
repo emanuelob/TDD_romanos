@@ -20,15 +20,13 @@ int romanos_para_decimal(char const * numero_romano) {
 
       // verificaçao que indica uma dupla válida. Se sim,subtrai os valores
       if (atual > ultimo) {
-          decimal += atual - ultimo;
+          decimal += atual - 2 * ultimo;
       } else {// caso contrário,soma o valor decimal atual ao total
           decimal += atual;
       }
 
-      // atualiza o valor do último verficado
-      ultimo = atual;
-      // próximo caractere
-      numero_romano++;
+      ultimo = atual; // atualiza o último algarismo verificado
+      numero_romano++; // prox caractere
   }
 
   // após encerrar o loop, retorna o valor decimal resultante
