@@ -1,12 +1,36 @@
 #include "romanos.hpp"
 
-int romanos_para_decimal(char const * num_romano) {
-  if (num_romano[0] == 'I') return 1;
-  if (num_romano[0] == 'V') return 5;
-  if (num_romano[0] == 'X') return 10;
-  if (num_romano[0] == 'L') return 50;
-  if (num_romano[0] == 'C') return 100;
-  if (num_romano[0] == 'D') return 500;
-  if (num_romano[0] == 'M') return 1000;
-  return -1; // para casos não cobertos
+int romanos_para_decimal(char const * numero_romano) {
+  // variável decimal armazena o resultado, enquanto a variável último seria o valor do último algarismo verifcado
+  int decimal = 0;
+  int ultimo = 0;
+
+  while (*numero_romano) {
+      int atual = 0;
+      // determina o valor decimal do algarismo atual
+      switch (*numero_romano) {
+          case 'I': atual = 1; break;
+          case 'V': atual = 5; break;
+          case 'X': atual = 10; break;
+          case 'L': atual = 50; break;
+          case 'C': atual = 100; break;
+          case 'D': atual = 500; break;
+          case 'M': atual = 1000; break;
+      }
+
+      // verificaçao que indica uma dupla válida. Se sim,subtrai os valores
+      if (atual > ultimo) {
+          decimal += atual - ultimo;
+      } else {// caso contrário,soma o valor decimal atual ao total
+          decimal += atual;
+      }
+
+      // atualiza o valor do último verficado
+      ultimo = atual;
+      // próximo caractere
+      numero_romano++;
+  }
+
+  // após encerrar o loop, retorna o valor decimal resultante
+  return decimal;
 }
