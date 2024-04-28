@@ -8,5 +8,5 @@ int romanos_para_decimal(char const * num_romano) {
   if (num_romano[0] == 'C') return 100;
   if (num_romano[0] == 'D') return 500;
   if (num_romano[0] == 'M') return 1000;
+  return -1; // para casos não cobertos
 }
- 
