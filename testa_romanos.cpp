@@ -37,3 +37,48 @@ TEST_CASE("Numeros romanos - algarismos repetidos", "[romanos]") {
     REQUIRE(romanos_para_decimal("MM") == 2000);
     REQUIRE(romanos_para_decimal("MMM") == 3000);
 };
+
+TEST_CASE("Numeros romanos - algarismos invalidos", "[romanos]") {
+    // o switch case não aceita caracteres inválidos, então não é necessário testar todos
+    // algumas letras maiúsculas e minúsculas que não são válidas em números romanos
+    REQUIRE_THROWS_AS(romanos_para_decimal("G"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("O"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("i"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("v"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("x"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("H"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("A"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("U"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("d"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("m"), std::invalid_argument);
+
+    // números e símbolos que não são válidos em números romanos
+    REQUIRE_THROWS_AS(romanos_para_decimal("0"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("1"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("2"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("3"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("4"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("5"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("6"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("7"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("8"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("9"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("!"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("@"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("#"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("$"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("%"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("^"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("&"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("*"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal(":"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal(";"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("'"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("`"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("~"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("?"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("/"), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal(","), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal("."), std::invalid_argument);
+    REQUIRE_THROWS_AS(romanos_para_decimal(" "), std::invalid_argument);
+};

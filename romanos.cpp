@@ -1,4 +1,6 @@
 #include "romanos.hpp"
+#include <stdexcept>  // para usar a exceção std::invalid_argument 
+#include <cctype>  // para usar isdigit()
 
 int romanos_para_decimal(char const * numero_romano) {
   // variável decimal armazena o resultado,
@@ -7,6 +9,11 @@ int romanos_para_decimal(char const * numero_romano) {
   int ultimo = 0;
 
   while (*numero_romano) {
+
+      if (isdigit(*numero_romano)) {// se o caractere é um dígito decimal
+        throw std::invalid_argument("Algarismo inválido. É um dígito decimal.");
+      }
+
       int atual = 0;
       // determina o valor decimal do algarismo atual
       switch (*numero_romano) {
@@ -17,6 +24,7 @@ int romanos_para_decimal(char const * numero_romano) {
           case 'C': atual = 100; break;
           case 'D': atual = 500; break;
           case 'M': atual = 1000; break;
+          default: throw std::invalid_argument("Algarismo inválido encontrado.");
       }
 
       // verificaçao que indica uma dupla válida. Se sim,subtrai os valores
