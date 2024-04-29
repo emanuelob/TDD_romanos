@@ -116,6 +116,12 @@ TEST_CASE("Numeros romanos - combinações inválidas", "[romanos]") {
     REQUIRE(romanos_para_decimal("DDDD") == -1);
     REQUIRE(romanos_para_decimal("MMMM") == -1);
 
+    // máximo permitidp
+    REQUIRE(romanos_para_decimal("MMMIII") == -1);
+
+    // string de tamanho maior que 30
+    REQUIRE(romanos_para_decimal("MMXIXMMXIXMMXIXMMXIXMMXIXMMXIXMMXIXMMXIXMMXIXMMXIXMMXIX") == -1);
+
     // mistura subtração e adição de maneira inválida
     REQUIRE(romanos_para_decimal("IVI") == -1);
     REQUIRE(romanos_para_decimal("XLX") == -1);

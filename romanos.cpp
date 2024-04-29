@@ -1,19 +1,35 @@
 #include "romanos.hpp"
 #include <cctype>  // para usar toupper()
 #include <cstring>  // para usar std::strlen
+#include <unordered_map>  // para usar std::unordered_map
+#include <string>  // para usar std::string
 
 int romanos_para_decimal(char const * numero_romano) {
-  // variável decimal armazena o resultado,
-  // a variável último seria o valor do último algarismo verifcado
   int decimal = 0;
   int ultimo = 0;
   bool subtracao = false;
-  int terceiraLetra = 0;
+  int terceiraLetra = 0;  
   int quartaLetra = 0;
+  int valor_maximo = 0;
 
   if (!numero_romano || !*numero_romano) {
     return -1;
   }
+
+  int tamanho = 0;
+  while (numero_romano[tamanho] != '\0') {
+      tamanho++;
+      if (tamanho >= 30) {
+          return -1; // tamanho exceder 30 caracteres
+      }
+  }
+
+  static const std::unordered_map<char, std::string> pares_invalidos = {
+    {'X', "MD"},
+    {'L', "MD"},
+    {'D', "MD"},
+    {'V', "MDCLX"}
+  };
 
   while (*numero_romano) {
       char caractere_romano = toupper(*numero_romano);
@@ -30,12 +46,21 @@ int romanos_para_decimal(char const * numero_romano) {
           default: return -1;
       }
 
+      valor_maximo += atual;
+      if (valor_maximo > 3000) {
+          return -1;
+      }
+
+      if (*(numero_romano + 1) && pares_invalidos.count(caractere_romano) && pares_invalidos.at(caractere_romano).find(toupper(*(numero_romano + 1))) != std::string::npos) {
+          return -1;
+      }
+
       // se o último algarismo for menor que o atual e a combinação for válida,
       // subtrai o valor do último do total.
       if (ultimo < atual) {
           // se o último algarismo não pode ser subtraído, como V, L ou D
           if (ultimo == 5 || ultimo == 50 || ultimo == 500) {
-          return -1;
+            return -1;
           } else {
               decimal += atual - 2 * ultimo;
               subtracao = ultimo != 0;
