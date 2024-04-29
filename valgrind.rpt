@@ -1,15 +1,15 @@
-==87617== Memcheck, a memory error detector
-==87617== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==87617== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==87617== Command: ./testa_romanos
-==87617== Parent PID: 87616
-==87617== 
-==87617== 
-==87617== HEAP SUMMARY:
-==87617==     in use at exit: 0 bytes in 0 blocks
-==87617==   total heap usage: 2,575 allocs, 2,575 frees, 455,308 bytes allocated
-==87617== 
-==87617== All heap blocks were freed -- no leaks are possible
-==87617== 
-==87617== For lists of detected and suppressed errors, rerun with: -s
-==87617== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==98378== Memcheck, a memory error detector
+==98378== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==98378== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==98378== Command: ./testa_romanos
+==98378== Parent PID: 98377
+==98378== 
+==98378== 
+==98378== HEAP SUMMARY:
+==98378==     in use at exit: 0 bytes in 0 blocks
+==98378==   total heap usage: 2,685 allocs, 2,685 frees, 464,530 bytes allocated
+==98378== 
+==98378== All heap blocks were freed -- no leaks are possible
+==98378== 
+==98378== For lists of detected and suppressed errors, rerun with: -s
+==98378== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
