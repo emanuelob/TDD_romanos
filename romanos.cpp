@@ -8,19 +8,15 @@ int romanos_para_decimal(char const * numero_romano) {
   int decimal = 0;
   int ultimo = 0;
   bool subtracao = false;
-  int terceiraLetra = 0;  
+  int terceiraLetra = 0;
   int quartaLetra = 0;
   int valor_maximo = 0;
-
-  if (!numero_romano || !*numero_romano) {
-    return -1;
-  }
 
   int tamanho = 0;
   while (numero_romano[tamanho] != '\0') {
       tamanho++;
       if (tamanho >= 30) {
-          return -1; // tamanho exceder 30 caracteres
+          return -1;  // tamanho exceder 30 caracteres
       }
   }
 
@@ -51,7 +47,9 @@ int romanos_para_decimal(char const * numero_romano) {
           return -1;
       }
 
-      if (*(numero_romano + 1) && pares_invalidos.count(caractere_romano) && pares_invalidos.at(caractere_romano).find(toupper(*(numero_romano + 1))) != std::string::npos) {
+      if (*(numero_romano + 1) && pares_invalidos.count(caractere_romano) &&
+      pares_invalidos.at(caractere_romano).find(toupper(*(numero_romano + 1)))
+      != std::string::npos) {
           return -1;
       }
 

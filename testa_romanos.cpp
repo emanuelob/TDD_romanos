@@ -103,9 +103,9 @@ TEST_CASE("Numeros romanos - combinações inválidas", "[romanos]") {
 
     // sequencia entre dois números sem relação
     REQUIRE(romanos_para_decimal("XM") == -1);
-    REQUIRE(romanos_para_decimal("LM") == -1); 
-    REQUIRE(romanos_para_decimal("DM") == -1); 
-    REQUIRE(romanos_para_decimal("VM") == -1);  
+    REQUIRE(romanos_para_decimal("LM") == -1);
+    REQUIRE(romanos_para_decimal("DM") == -1);
+    REQUIRE(romanos_para_decimal("VM") == -1);
 
     // algarismos que não são permitidos juntos
     REQUIRE(romanos_para_decimal("IIII") == -1);
