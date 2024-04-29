@@ -30,7 +30,6 @@ int romanos_para_decimal(char const * numero_romano) {
   while (*numero_romano) {
       char caractere_romano = toupper(*numero_romano);
       int atual = 0;
-      // determina o valor decimal do algarismo atual
       switch (caractere_romano) {
           case 'I': atual = 1; break;
           case 'V': atual = 5; break;
@@ -53,8 +52,6 @@ int romanos_para_decimal(char const * numero_romano) {
           return -1;
       }
 
-      // se o último algarismo for menor que o atual e a combinação for válida,
-      // subtrai o valor do último do total.
       if (ultimo < atual) {
           // se o último algarismo não pode ser subtraído, como V, L ou D
           if (ultimo == 5 || ultimo == 50 || ultimo == 500) {

@@ -1,2 +1,30 @@
-﻿com o g++ e o make e demais programas instalados 
-digite "make" neste diretório 
+﻿Esse trabalho utiliza Makefile para automatizar o processo de compilação do projeto. 
+Ele contém algumas regras que especificam como os arquivos do programa devem ser compilados, bem como outras tarefas relacionadas à compilação, como limpeza de arquivos gerados e execução de testes.
+
+Temos os seguintes comandos:
+
+Compilação: Use o comando "make compile" para compilar os arquivos. Isso irá gerar o executável testa_romanos.
+
+Execução dos Testes: Use o comando "make test" para executar os testes. Isso irá rodar o executável testa_romanos e mostrar os resultados dos testes.
+
+Verificação de Estilo: Use o comando "make cpplint" para verificar o estilo do código. Isso irá executar o cpplint nos arquivos especificados e reportar quaisquer problemas de estilo.
+
+Cobertura de Código: Use o comando "make gcov" ou "gcovr" para gerar a cobertura de código. Isso irá compilar os arquivos com as flags necessárias para cobertura e executar o teste, gerando arquivos .gcov que mostram a cobertura de cada linha de código.
+
+Verificação Estática: Use o comando "make cppcheck" para executar o cppcheck nos arquivos especificados. Isso irá reportar quaisquer problemas estáticos encontrados no código.
+
+Verificação Dinâmica: Use o comando "make valgrind" para executar o Valgrind no executável testa_romanos. Isso irá verificar se há problemas dinâmicos.
+
+Limpeza: Use o comando "make clean" para remover os arquivos gerados durante a compilação e execução dos testes.
+
+Testes cobertos:
+
+Testes de algarismos únicos: Verificam se a conversão de cada algarismo romano individual para seu equivalente decimal está correta.
+Testes de algarismos subtraídos: Avaliam a conversão de algarismos romanos que envolvem subtração, como IV, IX, XL, XC, CD e CM.
+Testes de algarismos repetidos: Verificam se a conversão de algarismos repetidos, como II, III, VII, VIII, XX, XXX, etc., está correta.
+Testes de algarismos inválidos: Garantem que o programa retorne -1 para caracteres romanos inválidos, incluindo letras que não estão associadas a algarismos romanos e números e símbolos não permitidos em números romanos.
+Testes de combinações de algarismos: Avaliam a conversão de combinações válidas de algarismos romanos, incluindo soma, subtração e misturas de ambos.
+Testes de combinações inválidas de algarismos: Verificam se o programa identifica corretamente combinações de algarismos romanos que são inválidas de acordo com as regras romanas, como algarismos repetidos mais de três vezes, algarismos que não podem ser repetidos (VV, LL, DD), combinações de algarismos não permitidos (XM, LM, DM, VM), e sequências de algarismos que excedem o valor máximo permitido (MMM).
+Testes de caracteres não permitidos: Verificam se o programa retorna -1 para combinações de caracteres inválidas que incluem caracteres especiais e símbolos não permitidos em números romanos.
+Teste do tamanho da entrada string (30 caracteres).
+Todos os formatos inválidos, retornam -1.
