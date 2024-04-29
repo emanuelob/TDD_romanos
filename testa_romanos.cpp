@@ -122,7 +122,7 @@ TEST_CASE("Numeros romanos - combinações inválidas", "[romanos]") {
     REQUIRE_THROWS_AS(romanos_para_decimal("XCXC"), std::invalid_argument);
 };
 
-TEST_CASE("Numeros romanos - combinações de caracteres não permitidos", "[romanos]") {
+TEST_CASE("Numeros romanos - comb. de carac. não permitidos", "[romanos]") {
     // o switch case não aceita caracteres inválidos, não é precisa testar todos
     // combinações de caracteres não permitidos com caracteres válidos
     REQUIRE_THROWS_AS(romanos_para_decimal("Ia"), std::invalid_argument);
