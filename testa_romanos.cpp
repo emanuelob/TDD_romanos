@@ -1,4 +1,4 @@
-#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
+#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main()
 #include "catch.hpp"
 #include "romanos.hpp"
 
@@ -39,8 +39,8 @@ TEST_CASE("Numeros romanos - algarismos repetidos", "[romanos]") {
 };
 
 TEST_CASE("Numeros romanos - algarismos invalidos", "[romanos]") {
-    // o switch case não aceita caracteres inválidos, então não é necessário testar todos
-    // algumas letras maiúsculas e minúsculas que não são válidas em números romanos
+    // o switch case não aceita caracteres inválidos, não é precisa testar todos
+    // algumas letras maiúsculas e minúsculas que não são válidas em num romanos
     REQUIRE_THROWS_AS(romanos_para_decimal("G"), std::invalid_argument);
     REQUIRE_THROWS_AS(romanos_para_decimal("O"), std::invalid_argument);
     REQUIRE_THROWS_AS(romanos_para_decimal("i"), std::invalid_argument);
